@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="4" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="10" time="22.409">
+    <testcase classname="WebOrder Login page test" name="Login Page Positive Test" time="3.765">
+        <system-out>
+            <![CDATA[Given the demoUser enters username "Tester".................................passed
+When the demoUser enters password "test"....................................passed
+And the demoUser validate the home page.....................................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="WebOrder Login page test" name="Login Functionality Negative Test" time="0.668">
+        <system-out>
+            <![CDATA[Given the demoUser enters username "techtorial".............................passed
+When the demoUser enters password "test"....................................passed
+Then the demoUser validate "Invalid Login or Password.".....................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="WebOrder Login page test" name="Login Functionality Negative Test 1" time="0.684">
+        <system-out>
+            <![CDATA[Given the demoUser enters username "Tester".................................passed
+When the demoUser enters password "tttt"....................................passed
+Then the demoUser validate "Invalid Login or Password.".....................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="WebOrder Login page test" name="Login Functionality Negative Test 2" time="1.113">
+        <failure message="Error message validation expected:&lt;...id Login or Password[]&gt; but was:&lt;...id Login or Password[.]&gt;" type="org.junit.ComparisonFailure">
+            <![CDATA[Given the demoUser enters username "Techtorial".............................passed
+When the demoUser enters password "tttt"....................................passed
+Then the demoUser validate "Invalid Login or Password"......................failed
+
+StackTrace:
+org.junit.ComparisonFailure: Error message validation expected:<...id Login or Password[]> but was:<...id Login or Password[.]>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at StepDefinitions.com.WebOrder.LoginPageSteps.the_demoUser_validate(LoginPageSteps.java:63)
+	at ✽.the demoUser validate "Invalid Login or Password"(file:///Users/nurayerdal/IdeaProjects/CucumberBatch4/src/test/resources/com.WebOrder/LoginTest.feature:24)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="New Order validation" name="Validate new order in WebOrder page" time="2.965">
+        <system-out>
+            <![CDATA[Given the demoUser enters username "Tester".................................passed
+When the demoUser enters password "test"....................................passed
+Then the user enter product info "MyMoney" and "10".........................passed
+And the user enter address info "David", "2200 E devon", "Des plaines", "Illinos", "60018".passed
+* the user enter payment info "Visa", "4444333322221111", "05/24"...........passed
+Then the user validate success message......................................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Validation of headers" name="Validation of new order headers" time="1.042">
+        <system-out>
+            <![CDATA[Given the demoUser enters username "Tester".................................passed
+When the demoUser enters password "test"....................................passed
+Then the user goes to the new order page....................................passed
+And the user validate the product headers...................................passed
+* the user validate the adress headers......................................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Validation of New order using Scenario Outline" name="New Order Validation" time="3.803">
+        <failure message="expected:&lt;06/1[7]/2020&gt; but was:&lt;06/1[6]/2020&gt;" type="org.junit.ComparisonFailure">
+            <![CDATA[Given the demoUser enters username "Tester".................................passed
+When the demoUser enters password "test"....................................passed
+Then the user enter product info "MyMoney" and "10".........................passed
+And the user enter address info "David", "2200 E devon", "Des Planies", "Illinois", "60018".passed
+* the user enter payment info "Visa", "4444333322221111", "05/24"...........passed
+Then the user validate success message......................................passed
+And the user validate new order details "MyMoney", "10","David", "2200 E devon","Des Planies","Illinois","60018","Visa","4444333322221111","05/24".failed
+
+StackTrace:
+org.junit.ComparisonFailure: expected:<06/1[7]/2020> but was:<06/1[6]/2020>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at StepDefinitions.com.WebOrder.NewOrderSteps.the_user_validate_new_order_details(NewOrderSteps.java:84)
+	at ✽.the user validate new order details "MyMoney", "10","David", "2200 E devon","Des Planies","Illinois","60018","Visa","4444333322221111","05/24"(file:///Users/nurayerdal/IdeaProjects/CucumberBatch4/src/test/resources/com.WebOrder/NewOrderOutline.feature:10)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Validation of New order using Scenario Outline" name="New Order Validation 2" time="3.336">
+        <failure message="expected:&lt;[Paul Brow]n&gt; but was:&lt;[Joh]n&gt;" type="org.junit.ComparisonFailure">
+            <![CDATA[Given the demoUser enters username "Tester".................................passed
+When the demoUser enters password "test"....................................passed
+Then the user enter product info "FamilyAlbum" and "5"......................passed
+And the user enter address info "John", "2200 E devon", "Chicago", "Arizona", "50456".passed
+* the user enter payment info "MasterCard", "4444333322226666", "06/26".....passed
+Then the user validate success message......................................passed
+And the user validate new order details "FamilyAlbum", "5","John", "2200 E devon","Chicago","Arizona","50456","MasterCard","4444333322226666","06/26".failed
+
+StackTrace:
+org.junit.ComparisonFailure: expected:<[Paul Brow]n> but was:<[Joh]n>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at StepDefinitions.com.WebOrder.NewOrderSteps.the_user_validate_new_order_details(NewOrderSteps.java:77)
+	at ✽.the user validate new order details "FamilyAlbum", "5","John", "2200 E devon","Chicago","Arizona","50456","MasterCard","4444333322226666","06/26"(file:///Users/nurayerdal/IdeaProjects/CucumberBatch4/src/test/resources/com.WebOrder/NewOrderOutline.feature:10)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Validation of New order using Scenario Outline" name="New Order Validation 3" time="3.544">
+        <failure message="expected:&lt;06/1[7]/2020&gt; but was:&lt;06/1[6]/2020&gt;" type="org.junit.ComparisonFailure">
+            <![CDATA[Given the demoUser enters username "Tester".................................passed
+When the demoUser enters password "test"....................................passed
+Then the user enter product info "ScreenSaver" and "3"......................passed
+And the user enter address info "Jessica", "3445 E river", "Los Angeles", "California", "45679".passed
+* the user enter payment info "American Express", "4444333322228888", "08/22".passed
+Then the user validate success message......................................passed
+And the user validate new order details "ScreenSaver", "3","Jessica", "3445 E river","Los Angeles","California","45679","American Express","4444333322228888","08/22".failed
+
+StackTrace:
+org.junit.ComparisonFailure: expected:<06/1[7]/2020> but was:<06/1[6]/2020>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at StepDefinitions.com.WebOrder.NewOrderSteps.the_user_validate_new_order_details(NewOrderSteps.java:84)
+	at ✽.the user validate new order details "ScreenSaver", "3","Jessica", "3445 E river","Los Angeles","California","45679","American Express","4444333322228888","08/22"(file:///Users/nurayerdal/IdeaProjects/CucumberBatch4/src/test/resources/com.WebOrder/NewOrderOutline.feature:10)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="All Products" name="Validation of All products" time="1.257">
+        <system-out>
+            <![CDATA[Given the demoUser enters username "Tester".................................passed
+When the demoUser enters password "test"....................................passed
+Then the user clicks the all products button................................passed
+And the user validate the product details...................................passed
+]]>
+        </system-out>
+    </testcase>
+</testsuite>
